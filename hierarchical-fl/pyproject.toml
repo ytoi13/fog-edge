@@ -1,0 +1,27 @@
+[project]
+name = "hierarchical-fl"
+version = "1.0.0"
+description = "Hierarchical FL (clients -> fog node → cloud)"
+license = "MIT"
+dependencies = [
+    "flwr[simulation]>=1.36.0",
+    "flwr-datasets[vision]>=0.6.1",
+    "torch==2.10.0",
+    "torchvision==0.25.0",
+]
+
+[tool.flwr.app]
+publisher = "zican-lin"
+
+[tool.flwr.app.components]
+serverapp = "hierarchical.server_app:app"
+clientapp = "hierarchical.client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 3
+fraction-evaluate = 1.0
+num-fog-nodes = 3
+local-epochs = 1
+learning-rate = 0.1
+batch-size = 32
+save-model = false
