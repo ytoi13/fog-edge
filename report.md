@@ -56,9 +56,11 @@ Then it becomes:
 ## Bandwidth saved
 
 Federated learning bandwidth $B_{FL}$ is:
+
 $$
 B_{\rm FL}=R\times S\times(2N+N_e)
 $$
+
 where:
 
 * $R$: Training rounds
@@ -69,9 +71,11 @@ where:
 One $N$ for downloading model, one $N$ for uploading, and $N_e$ for evaluating.
 
 Based on the raw training data of CIFAR-10, we have:
+
 $$
 B_{\rm baseline}=50000\times(32\times32\times3+1){\rm Byte}\approx146.53{\rm MB}
 $$
+
 where:
 
 * $50000$ means there are $50000$ images
@@ -80,6 +84,7 @@ where:
 * 1 is the label size that comes with each image
 
 Finally:
+
 $$
 {\rm Bandwidth\ saved}=(1-\frac{B_{\rm FL}}{B_{\rm baseline}})\times100\%
 $$
@@ -109,16 +114,21 @@ Let:
 * $N_e$: Number of clients participating in federated evaluation per round
 
 Bandwidth between clients and fog nodes:
+
 $$
 B_{\rm cli-fog}=RS(2N_c+N_e)
 $$
+
 Bandwidth between fog nodes and cloud:
+
 $$
 B_{\rm fog-cloud}=RS(2N_f)
 $$
+
 (Notice that evaluation does not happen in fog nodes in this case)
 
 Hierarchical FL bandwidth:
+
 $$
 B_{\rm HFL}=B_{\rm cli-fog}+B_{\rm fog-cloud}=RS(2N_f+2N_c+N_e)
 $$
